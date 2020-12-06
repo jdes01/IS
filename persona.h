@@ -1,7 +1,7 @@
 #ifndef PERSONA_H
 #define PERSONA_H
 
-#include <string>;
+#include <string>
 
 #include "fecha.h"
 #include "nombre.h"

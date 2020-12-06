@@ -3,9 +3,9 @@
 
 Persona::Persona( std::string nombre,           std::string primerApellido,
                   std::string segundoApellido,  std::string dni,
-                  std::string telefono,         int dia = 0,
-                  int mes = 0,                  int año = 0, 
-                  std::string direccion = "",   std::string correo = ""){
+                  std::string telefono,         int dia,
+                  int mes,                      int año, 
+                  std::string direccion,        std::string correo){
                        
                     nombre_.nombre = nombre;
                     nombre_.primerApellido = primerApellido;
