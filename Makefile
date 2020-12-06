@@ -12,9 +12,10 @@
 # project, except GTEST_HEADERS, which you can use in your own targets
 # but shouldn't modify.
 
+
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = /IS/googletest/googletest
+GTEST_DIR = /Users/javier/Desktop/IS/googletest/googletest
 
 # Where to find user code.
 # USER_DIR = ../samples
