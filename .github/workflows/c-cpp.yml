@@ -2,15 +2,18 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, Javi, Alberto, David ]
+  pull_request:
+    branches: [ master, Javi, Alberto, David ]
 
 jobs:
-  Test:
-    name: Running Unit Tests
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: test persona_unittest
+    - name: make
+      run: make
+    - name: persona class unit test
       run: ./persona_unittest
