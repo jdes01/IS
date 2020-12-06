@@ -3,17 +3,17 @@
 
 #include <string>;
 
-#include "date.h"
-#include "nombreCompleto.h"
+#include "fecha.h"
+#include "nombre.h"
 
 class Persona{
 
     private:
 
-        nombreCompleto nombre_;
+        nombre nombre_;
         std::string dni_;
         std::string telefono_;
-        date fechaNacimiento_;
+        fecha fechaNacimiento_;
         std::string direccion_;
         std::string correo_;
 
@@ -25,17 +25,17 @@ class Persona{
                  int mes = 0,                  int año = 0, 
                  std::string direccion = "",   std::string correo = ""); 
 
-        inline nombreCompleto getNombre(){ return nombre_; }                     
+        inline nombre getNombre(){ return nombre_; }                     
         inline std::string getDni(){ return dni_; }                           
         inline std::string getTelefono(){ return telefono_; }                 
-        inline date getFechaNacimiento(){ return fechaNacimiento_; }   
+        inline fecha getFechaNacimiento(){ return fechaNacimiento_; }   
         inline std::string getDireccion(){ return direccion_; }               
         inline std::string getCorreo(){ return correo_; }       
 
-        void setNombre(nombreCompleto nombre);
+        void setNombre(nombre nombre);
         void setDni(std::string dni);
         void setTelefono(std::string telefono);
-        void setFechaNacimiento(date fechaNacimiento);
+        void setFechaNacimiento(fecha fechaNacimiento);
         void setDireccion(std::string direccion);
         void setCorreo(std::string correo);
 };
