@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "persona.h"
 #include <string>
 
@@ -33,3 +34,6 @@ void Persona::setFechaNacimiento(fecha fechaNacimiento){ fechaNacimiento_ = fech
 void Persona::setDireccion(std::string direccion){ direccion_ = direccion; }
 
 void Persona::setCorreo(std::string correo){ correo_ = correo; }
+=======
+hola
+>>>>>>> a2fa770724235fbb45d6754a227cd1242b4d8560
