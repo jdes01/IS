@@ -11,16 +11,17 @@ class Monitor : public Persona{
 
         std::string id_;
 
-    private:
+    public:
 
-        Monitor ( std::string id,
-                  std::string nombre,           std::string primerApellido,
+        Monitor ( std::string nombre,           std::string primerApellido,
                   std::string segundoApellido,  std::string dni,
                   std::string telefono,         int dia,
-                  int mes,                      int año, 
+                  int mes,                      int ano, 
                   std::string direccion,        std::string correo)
                   
-                  :Persona(nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, año, direccion, correo){id_=id;}
+                  :Persona(nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo){id_="0";}
+
+        inline std::string getId(){return id_;}
 
 
 };
