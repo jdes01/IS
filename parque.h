@@ -2,7 +2,9 @@
 #define PARQUE_H
 
 #include <string>
+#include <list>
 #include "sendero.h"
+
 
 class Parque{
 

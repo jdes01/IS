@@ -1,5 +1,5 @@
 #include "parque.h"
-#include <string>
+#include <fstream>
 
 Parque::Parque(std::string nombre, std::string ubicacion, float superficie){
 
