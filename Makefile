@@ -15,7 +15,7 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = /Users/javier/Desktop/IS/googletest/googletest
+GTEST_DIR = /home/david/Escritorio/IS/googletest/googletest
 
 # Where to find user code.
 # USER_DIR = ../samples
@@ -30,7 +30,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread -std=gnu++11
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = persona_unittest 
+TESTS = persona_unittest monitor_unittest parque_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -77,6 +77,20 @@ persona.o : persona.cc persona.h
 persona_unittest.o : persona_unittest.cc persona.h persona.cc
 
 persona_unittest : persona.o persona_unittest.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+monitor.o : monitor.cc monitor.h persona.cc persona.h
+
+monitor_unittest.o : monitor_unittest.cc monitor.h monitor.cc persona.cc persona.h
+
+monitor_unittest : monitor.o monitor_unittest.o gtest_main.a persona.o
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+	
+parque.o : parque.cc parque.h
+
+parquea_unittest.o : parque_unittest.cc parque.h parque.cc
+
+parquea_unittest : parque.o parque_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
 
