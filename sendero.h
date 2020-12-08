@@ -24,7 +24,7 @@ class Sendero{
                        
             nombre_ = nombre;
             //parque_ = parque;
-            id_     = "0";  
+            id_     = nombre;
         }
     
         inline std::string getNombre(){ return nombre_; }

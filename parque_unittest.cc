@@ -1,20 +1,28 @@
 #include "parque.h"
+#include "sendero.h"
 #include "gtest/gtest.h"
 
 TEST(Parque, Constructor) {
 
-  Parque p("Nombre", "Ubicacion", "Superficie");
+  Parque p("Nombre", "Ubicacion", 1);
   
   EXPECT_EQ( "Nombre",           p.getNombre());
   EXPECT_EQ( "Ubicacion",        p.getUbicacion());
-  EXPECT_EQ( "Superficie",       p.getSuperficie());
+  EXPECT_EQ( 1,                  p.getSuperficie());
 }
 
 TEST(Parque, addSenderos) {
 
-  Parque s("Nombre", "Ubicacion", "Superficie");
-  
-  EXPECT_EQ( "Nombre",           s.getNombre());
-  EXPECT_EQ( "Ubicacion",        p.getUbicacion());
-  EXPECT_EQ( "Superficie",       p.getSuperficie());
+  Parque p("Nombre", "Ubicacion", 1);
+  Sendero s("hola");
+  Sendero ss("adios");
+  Sendero sss("hola");
+  p.addSenderos(s);
+  p.addSenderos(ss);
+  p.addSenderos(sss);
+
+  EXPECT_EQ( "adios",         ss.getNombre());
+  EXPECT_EQ( "hola",          s.getId());
+  EXPECT_EQ( "hola",          s.getNombre());
+  EXPECT_EQ( 2,               p.getSenderos().size());
 }

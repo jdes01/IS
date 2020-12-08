@@ -22,7 +22,7 @@ class Persona{
         Persona( std::string nombre,           std::string primerApellido,
                  std::string segundoApellido,  std::string dni,
                  std::string telefono,         int dia = 0,
-                 int mes = 0,                  int año = 0, 
+                 int mes = 0,                  int ano = 0, 
                  std::string direccion = "",   std::string correo = ""); 
 
         inline nombre getNombre(){ return nombre_; }                     

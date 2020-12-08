@@ -13,23 +13,23 @@ class Parque{
         std::string nombre_;
         std::string id_;
         std::string ubicacion_;
-        float superficie_;
+        int superficie_;
         std::list <Sendero> senderos_;
 
     public:
 
-        Parque(std::string nombre, std::string ubicacion = "", float superficie = "");
+        Parque(std::string nombre, std::string ubicacion = "", int superficie = 0);
 
         inline std::string getNombre(){ return nombre_;};
         inline std::string getId(){ return id_;};
         inline std::string getUbicacion(){ return ubicacion_;};
-        inline float getSuperficie(){ return superficie_;};
+        inline int getSuperficie(){ return superficie_;};
         inline std::list <Sendero> getSenderos(){ return senderos_;};
 
-        inline std::string setNombre(std::string nombre){nombre_=nombre;};
-        inline std::string setId(std::string id){id_=id;};
-        inline std::string setUbicacion(std::string ubicacion){ubicacion_=ubicacion;};
-        inline float setSuperficie(float superficie){superficie_=superficie;};
+        inline void setNombre(std::string nombre){nombre_=nombre;};
+        inline void setId(std::string id){id_=id;};
+        inline void setUbicacion(std::string ubicacion){ubicacion_=ubicacion;};
+        inline void setSuperficie(int superficie){superficie_=superficie;};
         bool addSenderos(Sendero senderos);
 };
 

@@ -15,7 +15,7 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = /home/david/Escritorio/IS/googletest/googletest
+GTEST_DIR = /home/kan0/Desktop/IS/googletest/googletest/
 
 # Where to find user code.
 # USER_DIR = ../samples
@@ -88,9 +88,9 @@ monitor_unittest : monitor.o monitor_unittest.o gtest_main.a persona.o
 	
 parque.o : parque.cc parque.h
 
-parquea_unittest.o : parque_unittest.cc parque.h parque.cc
+parque_unittest.o : parque_unittest.cc parque.h parque.cc
 
-parquea_unittest : parque.o parque_unittest.o gtest_main.a
+parque_unittest : parque.o parque_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
 
