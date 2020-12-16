@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "persona.h"
 #include <string>
 
@@ -32,4 +33,40 @@ void Persona::setFechaNacimiento(fecha fechaNacimiento){ fechaNacimiento_ = fech
 
 void Persona::setDireccion(std::string direccion){ direccion_ = direccion; }
 
+=======
+#include "persona.h"
+#include <string>
+
+Persona::Persona( std::string nombre,           std::string primerApellido,
+                  std::string segundoApellido,  std::string dni,
+                  std::string telefono,         int dia,
+                  int mes,                      int ano, 
+                  std::string direccion,        std::string correo){
+                       
+                    nombre_.nombre = nombre;
+                    nombre_.primerApellido = primerApellido;
+                    nombre_.segundoApellido = segundoApellido;
+
+                    dni_ = dni;
+                    telefono_ = telefono;
+
+                    fechaNacimiento_.dia = dia;
+                    fechaNacimiento_.mes = mes;
+                    fechaNacimiento_.ano = ano;
+                    
+                    direccion_ = direccion;
+                    correo_ = correo;
+                }
+
+void Persona::setNombre(nombre nombre){ nombre_ = nombre; }
+
+void Persona::setDni(std::string dni){ dni_ = dni; }
+
+void Persona::setTelefono(std::string telefono){ telefono_ = telefono; }
+
+void Persona::setFechaNacimiento(fecha fechaNacimiento){ fechaNacimiento_ = fechaNacimiento; }
+
+void Persona::setDireccion(std::string direccion){ direccion_ = direccion; }
+
+>>>>>>> be146fe0ca404552b76e390eab76df2db1a3187e
 void Persona::setCorreo(std::string correo){ correo_ = correo; }
