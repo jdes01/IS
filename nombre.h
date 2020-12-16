@@ -1,3 +1,5 @@
+#ifndef NOMBRE_H
+#define NOMBRE_H
 #include <string>
 
 struct nombre {
@@ -6,3 +8,5 @@ struct nombre {
     std::string primerApellido;
     std::string segundoApellido;
 };
+
+#endif

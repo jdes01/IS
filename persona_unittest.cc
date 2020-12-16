@@ -12,7 +12,7 @@ TEST(Persona, Constructor) {
   EXPECT_EQ( "123456789",        p.getTelefono() );
   EXPECT_EQ( 1,                  p.getFechaNacimiento().dia );
   EXPECT_EQ( 2,                  p.getFechaNacimiento().mes );
-  EXPECT_EQ( 3,                  p.getFechaNacimiento().año );
+  EXPECT_EQ( 3,                  p.getFechaNacimiento().ano );
   EXPECT_EQ( "direccion",        p.getDireccion() );
   EXPECT_EQ( "correo@mail.com",  p.getCorreo() );
 }
