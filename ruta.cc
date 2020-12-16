@@ -1,25 +1,16 @@
-#ifndef RUTA_H
-#define RUTA_H
-#include <string>
-#include <string>
-#include <list>
-#include "sendero.h"
-#include "parque.h"
+#include "ruta.h"
 
-class Ruta{
+void Ruta::addSenderos(Sendero sendero){
 
-    private:
-        
-        std::string nombre;
-        std::list<Sendero> senderos;
-        std::string id;
-        Parque parque;
-        int aforo;
+    for(std::list<Sendero>::iterator i=senderos_.begin();i!=senderos_.end();i++){
 
-    public:
+        if((*i).getId()==sendero.getId()){
 
+            EXIT_FAILURE;
 
+        }
 
-};
+    }
 
-#endif
+    senderos_.push_back(sendero);
+}
