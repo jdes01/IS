@@ -1,5 +1,6 @@
 #include "monitor.h"
 #include "incidencia.h"
+#include <iostream>
 
 void Monitor::crearIncidencia(Sendero sendero){
 

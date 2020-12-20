@@ -31,24 +31,24 @@ class Admin : public Persona{
         inline void setId(std::string id){id_=id;}
 
         void crearParque();
-        void editarParque(std::string id);
-        void eliminarParque(std::string id);
+        void editarParque(Parque parque);
+        void eliminarParque(Parque parque;
 
         void crearSendero(Parque parque);
-        void editarSendero(std::string id);
-        void eliminarSendero(std::string id);
+        void editarSendero(Sendero sendero);
+        void eliminarSendero(Sendero sendero);
 
         void crearMonitor();
-        void editarMonitor(std::string id);
-        void eliminarMonitor(std::string id);
+        void editarMonitor(Monitor monitor);
+        void eliminarMonitor(Monitor monitor);
 
-        void crearVisita(Ruta ruta);
-        void editarVisita(std::string id);
-        void eliminarVisita(std::string id);
+        void crearVisita(Ruta ruta, Monitor monitor);
+        void editarVisita(Visita visita);
+        void eliminarVisita(Visita visita);
 
         void crearVisitante();
-        void editarVisitante(std::string dni);
-        void eliminarVisitante(std::string dni);
+        void editarVisitante(Visitante visitante);
+        void eliminarVisitante(Visitante visitante);
 
 };
 

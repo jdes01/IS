@@ -2,17 +2,21 @@
 #include "fecha.h"
 #include <string>
 
-Visita::Visita( std::string id, int aforo, int plazasLibres, fecha fecha){
+Visita::Visita(int aforo, int dia, int mes, int ano, Ruta ruta, Monitor monitor){
                        
-            id_ = id;
+            id_ = 0;
+            plazasLibres_ = 0;
             aforo_ = aforo;
-            plazasLibres = plazasLibres;
-            fecha_ = fecha;
+            ruta_ = &ruta;
+            monitor_ = &monitor;
+            fechaNacimiento_.dia = dia;
+            fechaNacimiento_.mes = mes;
+            fechaNacimiento_.ano = ano;
 }
 
 void Visita::setFecha(fecha fecha){ fecha_ = fecha; }
 
-//void setRuta(){}
+void setRuta(Ruta ruta){ ruta_ = &ruta; }
 
 void Visita::setAforo(int aforo){ aforo_ = aforo; }
 
@@ -20,6 +24,6 @@ void Visita::setPlazasLibres(int plazasLibres){ plazasLibres_ = plazasLibres; }
 
 //void setVisitantes(){}
 
-//void setMonitor(){}
+void setMonitor(Monitor monitor){ monitor_ = &monitor; }
 
 void Visita::setId(std::string id){ id_ = id; }
