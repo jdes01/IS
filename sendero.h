@@ -4,7 +4,7 @@
 #include <list>
 #include <string>
 
-//#include "parque.h"
+#include "parque.h"
 //#include "incidencia.h"
 
 class Sendero{
@@ -14,26 +14,26 @@ class Sendero{
         std::string nombre_;
         std::string id_;
         
-        //Parque parque_;
+        Parque * parque_;
 
         //list<Incidencia> incidencias_;
 
     public:
 
-        Sendero( std::string nombre /*, Parque parque*/ ){
+        Sendero( std::string nombre, Parque parque){
                        
             nombre_ = nombre;
-            //parque_ = parque;
+            parque_ = &parque;
             id_     = nombre;
         }
     
         inline std::string getNombre(){ return nombre_; }
         inline std::string getId(){ return id_; }
-        //inline Parque getParque(){ return parque_; }
+        inline Parque getParque(){ return *parque_; }
 
         void setNombre(std::string nombre);
         void setId(std::string id);
-        //void setParque(Parque parque);        
+        void setParque(Parque parque);        
 
 };
 
