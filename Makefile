@@ -30,7 +30,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread -std=gnu++11
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = persona_unittest monitor_unittest parque_unittest
+TESTS = persona_unittest monitor_unittest parque_unittest visitante_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -91,5 +91,12 @@ parque.o : parque.cc parque.h
 parque_unittest.o : parque_unittest.cc parque.h parque.cc
 
 parque_unittest : parque.o parque_unittest.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+visitante.o : visitante.cc visitante.h
+
+visitante_unittest.o : visitante_unittest.cc visitante.h visitante.cc
+
+visitante_unittest : visitante.o visitante_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
