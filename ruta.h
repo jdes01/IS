@@ -1,5 +1,6 @@
 #ifndef RUTA_H
 #define RUTA_H
+
 #include <string>
 #include <string>
 #include <list>
