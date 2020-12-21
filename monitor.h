@@ -5,6 +5,7 @@
 #include "nombre.h"
 #include "sendero.h"
 #include "parque.h"
+#include "ruta.h"
 #include <string>
 
 class Monitor : public Persona{
@@ -27,13 +28,13 @@ class Monitor : public Persona{
         inline void setId(std::string id){id_=id;}
 
         void crearIncidencia(Sendero sendero);
-        void editarIncidencia(std::string id);
+        void editarIncidencia(Incidencia incidencia);
 
-        void eliminarIncidencia(std::string id);
+        void eliminarIncidencia(Incidencia incidencia);
         void crearRuta(Parque parque);
         
-        void editarRuta(std::string id);
-        void eliminarRuta(std::string id);
+        void editarRuta(Ruta ruta);
+        void eliminarRuta(Ruta ruta);
 
 
 };
