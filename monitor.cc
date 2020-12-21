@@ -1,23 +1,30 @@
 #include "monitor.h"
 #include "incidencia.h"
+#include <iostream>
 
 void Monitor::crearIncidencia(Sendero sendero){
 
     Incidencia aux("","");
+
     std::string id, titulo, descripcion, prioridad;
     std::cout<<"Introduzca el id de la incidencia:";
     std::cin>>id;
     aux.setId(id);
+
     std::cout<<"Introduzca el titulo de la incidencia:";
     std::cin>>titulo;
     aux.setTitulo(titulo);
+
     std::cout<<"Introduzca la descripción de la incidencia:";
     std::cin>>descripcion;
     aux.setTitulo(descripcion);
+
     std::cout<<"Introduzca la prioridad de la incidencia:";
     std::cin>>prioridad;
     aux.setTitulo(prioridad);
+
     aux.setSendero(sendero);
+    
     sendero.incidencias_.push_back(aux);
 }
 
