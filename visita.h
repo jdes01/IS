@@ -2,6 +2,8 @@
 #define VISITA_H
 
 #include <string>
+#include "fecha.h"
+#include "nombre.h"
 
 #include "visita.cc"
 #include "fecha.h"
@@ -13,22 +15,34 @@ class Visita{
     private:
 
         fecha fecha_;
-        //std::list <Visitante> visitantes_;
-        Ruta * ruta
         int aforo_;
         int plazasLibres_;
-        Monitor * monitor;
         std::string id_;
+
+        std::list <Visitante> visitantes_;
+        Ruta * ruta_;
+        Monitor * monitor_;
+        
 
     public:
 
-        Visita(int aforo, int dia, int mes, int ano, Ruta ruta, Monitor monitor);
+        Visita(int aforo, int dia, int mes, int ano, Ruta ruta, Monitor monitor){
+
+            id_ = "0";
+            plazasLibres_ = 0;
+            aforo_ = aforo;
+            ruta_ = &ruta;
+            monitor_ = &monitor;
+            fecha.dia = dia;
+            fecha.mes = mes;
+            fecha.ano = ano;
+        }
     
         inline fecha getFecha(){ return fecha_; }
         inline Ruta getRuta(){ return *ruta_; }
         inline int getAfoto(){ return aforo_; }
         inline int getPlazasLibres(){ return plazasLibres_; }
-        //inline std::list<Visitante> getVisitantes(){ return visitantes_; }
+        inline std::list<Visitante> getVisitantes(){ return visitantes_; }
         inline Monitor getMonitor(){ return *monitor_; }
         inline std::string getId(){ return id_; }
  
@@ -37,7 +51,7 @@ class Visita{
         void setRuta(Ruta ruta);
         void setAforo(int aforo);
         void setPlazasLibres(int plazasLibres);
-        //void setVisitantes();
+        void setVisitantes();
         void setMonitor();
         void setId(std::string id);  
 
