@@ -28,12 +28,11 @@ void Monitor::crearIncidencia(Sendero sendero){
     sendero.incidencias_.push_back(aux);
 }
 
-void Monitor::editarIncidencia(std::string id){
+void Monitor::editarIncidencia(Incidencia incidencia){
 
-    Sendero aux("/0","/0");
-    for(std::list<Incidencia>::iterator i=incidencias_.begin();i!=incidencias_.end();i++){
+    for(std::list<Incidencia>::iterator i=incidencia.getSendero().getIncidencias().begin();i!=incidencia.getSendero().getIncidencias().end();i++){
 
-        if(id==(*i).getId){
+        if(incidencia.getId()==(*i).getId()){
 
         std::string id, titulo, descripcion, prioridad;
         std::cout<<"Introduzca el id de la incidencia:";
@@ -54,11 +53,11 @@ void Monitor::editarIncidencia(std::string id){
 
 }
 
-void Monitor::eliminarIncidencia(std::string id){
+void Monitor::eliminarIncidencia(Incidencia incidencia){
+ 
+    for(std::list<Incidencia>::iterator i=incidencia.getSendero().getIncidencias();i!=incidencia.getSendero().getIncidencias();i++){
 
-    for(std::list<Incidencia>::iterator i=incidencias_.begin();i!=incidencias_.end();i++){
-
-        if((*i).getId()==id){incidencias_.erase(i);}
+        if((*i).getId()==incidencia.getId()){incidencia.getSendero().getIncidencias().erase(i);}
 
     }
 
@@ -82,38 +81,24 @@ void Monitor::crearRuta(Parque parque){
     parque.rutas_.push_back(aux);
 }
 
-void Monitor::editarRuta(std::string id){
+void Monitor::editarRuta(Ruta ruta){
 
-    Parque aux("/0","/0");
-    for(std::list<Incidencia>::iterator i=rutas_.begin();i!=rutas_.end();i++){
-
-        if(id==(*i).getId){
-
-            Parque aux("","");
             std::string nombre, id;
             int aforo;
             std::cout<<"Introduzca el id de la ruta:";
             std::cin>>id;
-            (*i).setId(id);
+            ruta.setId(id);
             std::cout<<"Introduzca el nombre de la ruta:";
             std::cin>>nombre;
-            (*i).setNombre(nombre);
+            ruta.setNombre(nombre);
             std::cout<<"Introduzca el aforo de la ruta:";
             std::cin>>aforo;
-            (*i).setAforo(aforo);
-
-        }
-
-    }
+            ruta.setAforo(aforo);
 
 }
 
-void Monitor::eliminarRuta(std::string id){
+void Monitor::eliminarRuta(Ruta ruta){
 
-    for(std::list<Incidencia>::iterator i=rutas_.begin();i!=rutas_.end();i++){
 
-        if((*i).getId()==id){rutas_.erase(i);}
-
-    }
 
 }
