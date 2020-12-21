@@ -29,10 +29,9 @@ class Monitor : public Persona{
 
         void crearIncidencia(Sendero sendero);
         void editarIncidencia(Incidencia incidencia);
-
         void eliminarIncidencia(Incidencia incidencia);
+
         void crearRuta(Parque parque);
-        
         void editarRuta(Ruta ruta);
         void eliminarRuta(Ruta ruta);
 

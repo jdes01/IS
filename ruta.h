@@ -12,24 +12,31 @@ class Ruta{
     private:
         
         std::string nombre_;
-        std::list<Sendero> senderos_;
         std::string id_;
-        Parque * parque_;
         int aforo_;
-
+        Parque * parque_;
+        std::list<Sendero> senderos_;
+        
     public:
 
-        Ruta(std::string id, std::string nombre, Parque parque):parque_(parque.getId(), parque.getNombre()){id_=id; nombre_=nombre; aforo_=0;}
+        Ruta(std::string nombre, int aforo, Parque parque){
+
+            nombre_ = nombre;
+            parque_ = &parque;
+            aforo_ = aforo;
+        }
         
-        inline std::string getNombre(){return nombre_;}
-        inline void setNombre(std::string nombre){nombre_=nombre;}
-        inline std::string getId(){return id_;}
-        inline void setId(std::string id){id_=id;}
-        inline int getAforo(){return aforo_;}
-        inline void setAforo(int aforo){aforo_=aforo;}
-        inline Parque getParque(){return parque_;}
-        inline void setParque(Parque parque){parque_=parque;}
-        inline std::list<Sendero> getSenderos(){return senderos_;}
+        inline std::string getNombre(){ return nombre_; }
+        inline std::string getId(){ return id_; }
+        inline int         getAforo(){ return aforo_; }
+        inline Parque      getParque(){ return *parque_; }
+        inline std::list<Sendero> getSenderos(){ return senderos_; }
+
+        inline void setNombre(std::string nombre){ nombre_=nombre; }
+        inline void setId(std::string id){ id_=id; }
+        inline void setAforo(int aforo){ aforo_=aforo; }
+        inline void setParque(Parque parque){ parque_=&parque; }
+
         void addSenderos(Sendero sendero);
 
 
