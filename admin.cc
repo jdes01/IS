@@ -1,13 +1,15 @@
 #include "admin.h"
+#include "persona.h"
 #include "parque.h"
-#include "sendero.h"
 #include "monitor.h"
+#include "sendero.h"
 
 #include "fecha.h"
 #include "nombre.h"
 
 #include <iostream>
 #include <string>
+
 
 void Admin::crearParque(){
 
@@ -51,6 +53,7 @@ void Admin::editarParque(Parque parque){
 void Admin::eliminarParque(Parque parque){}
 
 
+
 void Admin::crearSendero(Parque parque){
 
     std::string nombre;
@@ -74,6 +77,7 @@ void Admin::editarSendero(Sendero sendero){
 }
 
 void Admin::eliminarSendero(Sendero sendero){}
+
 
 
 void Admin::crearMonitor(){
@@ -131,17 +135,31 @@ void Admin::editarMonitor(Monitor monitor){
     std::cout<<"introduzca el segundo apellido: ";
     std::cin>>segundoApellido;
 
+        nombreCompleto.nombre = nombre;
+        nombreCompleto.primerApellido = primerApellido;
+        nombreCompleto.segundoApellido = segundoApellido;
+
+        monitor.setNombre(nombreCompleto);      
+
     std::cout<<"introduzca el dni: ";
     std::cin>>dni;
+
+        monitor.setDni(dni);
 
     std::cout<<"introduzca el telefono: ";
     std::cin>>telefono;
 
+        monitor.setTelefono(telefono);
+
     std::cout<<"introduzca la direccion: ";
     std::cin>>direccion;
 
+        monitor.setDireccion(direccion);
+
     std::cout<<"introduzca el correo: ";
     std::cin>>correo;
+
+        monitor.setCorreo(correo);
 
     std::cout<<"introduzca la fecha (dia): ";
     std::cin>>dia;
@@ -152,18 +170,24 @@ void Admin::editarMonitor(Monitor monitor){
     std::cout<<"introduzca la fecha (ano): ";
     std::cin>>ano;
 
+        fechaNacimiento.dia = dia;
+        fechaNacimiento.mes = mes;
+        fechaNacimiento.ano = ano;
+
+        monitor.setFechaNacimiento(fechaNacimiento);
 }
 
 void Admin::eliminarMonitor(Monitor monitor){}
 
-/*
+
+
 void Admin::crearVisita(Ruta ruta, Monitor monitor){
 
     int aforo, dia, mes, ano;
     
 
-    std::cout<<"introduzca la aforo: ";
-    std::cin>>direccion;
+    std::cout<<"introduzca el aforo: ";
+    std::cin>>aforo;
 
     std::cout<<"introduzca la fecha (dia): ";
     std::cin>>dia;
@@ -178,57 +202,35 @@ void Admin::crearVisita(Ruta ruta, Monitor monitor){
 
 }
 
-void Admin::editarVisita(Visit visita){
+void Admin::editarVisita(Visita visita){
 
     fecha fechaCompleta;
-    int dia, mes, ano;
-    int aforo;
-    int plazasLibres;
+    int aforo, dia, mes, ano;
+    
 
-    int i;
+    std::cout<<"introduzca el aforo: ";
+    std::cin>>aforo;
 
+        visita.setAforo(aforo);
 
-    std::cout<<"Si quiere editar la fecha pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
+    std::cout<<"introduzca la fecha (dia): ";
+    std::cin>>dia;
 
-    if (i=1){
+    std::cout<<"introduzca la fecha (mes): ";
+    std::cin>>mes;
 
-    std::cout<<"introduzca el dia: ";
-    std::cin>>dia;  
-    std::cout<<"introduzca el mes: ";
-    std::cin>>mes; 
-    std::cout<<"introduzca el ano: ";
-    std::cin>>ano; 
+    std::cout<<"introduzca la fecha (ano): ";
+    std::cin>>ano;
 
     fechaCompleta.dia = dia;
     fechaCompleta.mes = mes;
     fechaCompleta.ano = ano;
 
     visita.setFecha(fechaCompleta);
-    }
-
-    std::cout<<"Si quiere editar el aforo pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
-
-    std::cout<<"introduzca el aforo: ";
-    std::cin>>aforo;  
-    visita.setAforo(aforo);
-    } 
-
-    std::cout<<"Si quiere editar las plazas libres pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
-
-    std::cout<<"introduzca las plazas libres: ";
-    std::cin>>plazasLibres; 
-    visita.setPlazasLibres(plazasLibres);
-    }
 }
 
 void Admin::eliminarVisita(Visita visita){}
+
 
 
 void Admin::crearVisitante(){
@@ -237,7 +239,7 @@ void Admin::crearVisitante(){
     int dia, mes, ano;
 
     std::cout<<"introduzca (si tuviera) un discapacidad: ";
-    std::cin>>nombre;
+    std::cin>>discapacidad;
 
     std::cout<<"introduzca el Nombre: ";
     std::cin>>nombre;
@@ -276,104 +278,65 @@ void Admin::crearVisitante(){
 
 void Admin::editarVisitante(Visitante visitante){
 
+    fecha fechaCompleta;
     nombre nombreCompleto;
-    fecha fechaNacimiento;
-    std::string nombre, primerApellido, segundoApellido, dni, telefono, direccion, correo, discapacidad;
+    std::string discapacidad, nombre, primerApellido, segundoApellido, dni, telefono, direccion, correo;
     int dia, mes, ano;
 
-    int i;
+    std::cout<<"introduzca (si tuviera) un discapacidad: ";
+    std::cin>>discapacidad;
 
-
-    std::cout<<"Si quiere editar el nombre pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+        visitante.setDiscapacidad(discapacidad);
 
     std::cout<<"introduzca el Nombre: ";
-    std::cin>>nombre;  
+    std::cin>>nombre;
+
     std::cout<<"introduzca el primer apellido: ";
-    std::cin>>primerApellido; 
+    std::cin>>primerApellido;
+
     std::cout<<"introduzca el segundo apellido: ";
-    std::cin>>segundoApellido; 
+    std::cin>>segundoApellido;
 
-    nombreCompleto.nombre = nombre;
-    nombreCompleto.primerApellido = primerApellido;
-    nombreCompleto.segundoApellido = segundoApellido;
+        nombreCompleto.nombre = nombre;
+        nombreCompleto.primerApellido = primerApellido;
+        nombreCompleto.segundoApellido = segundoApellido;
 
-    visitante.setNombre(nombreCompleto);
-    }
-
-    std::cout<<"Si quiere editar el dni pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+        visitante.setNombre(nombreCompleto);
 
     std::cout<<"introduzca el dni: ";
-    std::cin>>dni;  
-    visitante.setDni(dni);
-    } 
+    std::cin>>dni;
 
-    std::cout<<"Si quiere editar el telefono pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+        visitante.setDni(dni);
 
     std::cout<<"introduzca el telefono: ";
-    std::cin>>telefono; 
-    visitante.setTelefono(telefono);
-    }
+    std::cin>>telefono;
 
-    std::cout<<"Si quiere editar la direccion pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+        visitante.setTelefono(telefono);
 
     std::cout<<"introduzca la direccion: ";
-    std::cin>>direccion; 
-    visitante.setDireccion(direccion);
-    }
+    std::cin>>direccion;
 
-    std::cout<<"Si quiere editar el correo pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+        visitante.setDireccion(direccion);
 
     std::cout<<"introduzca el correo: ";
-    std::cin>>correo; 
-    visitante.setCorreo(correo);
-    }
+    std::cin>>correo;
 
-    std::cout<<"Si quiere editar la fecha de nacimiento pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
+        visitante.setCorreo(correo);
 
-    if (i=1){
+    std::cout<<"introduzca la fecha (dia): ";
+    std::cin>>dia;
 
-    std::cout<<"introduzca el dia: ";
-    std::cin>>dia;  
-    std::cout<<"introduzca el mes: ";
-    std::cin>>mes; 
-    std::cout<<"introduzca el ano: ";
-    std::cin>>ano; 
+    std::cout<<"introduzca la fecha (mes): ";
+    std::cin>>mes;
 
-    fechaNacimiento.dia = dia;
-    fechaNacimiento.mes = mes;
-    fechaNacimiento.ano = ano;
+    std::cout<<"introduzca la fecha (ano): ";
+    std::cin>>ano;
 
-    visitante.setFechaNacimiento(fechaNacimiento);
-    }
+        fechaCompleta.dia = dia;
+        fechaCompleta.mes = mes;
+        fechaCompleta.ano = ano;
 
-    std::cout<<"Si quiere editar la discapacidd pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
-
-    std::cout<<"introduzca la discapacidad: ";
-    std::cin>>discapcidad; 
-    visitante.setDiscapacidad(discapacidad);
-    }
-
+        visitante.setFechaNacimiento(fechaCompleta);
 }
 
-
-void Admin::eliminarVisitante(std::string dni);
-*/
+void Admin::eliminarVisitante(Visitante visitante){}

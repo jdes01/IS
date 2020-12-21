@@ -19,7 +19,7 @@ class Visita{
         int plazasLibres_;
         std::string id_;
 
-        std::list <Visitante> visitantes_;
+        std::list <Visitante*> visitantes_;
         Ruta * ruta_;
         Monitor * monitor_;
         
@@ -33,6 +33,7 @@ class Visita{
             aforo_ = aforo;
             ruta_ = &ruta;
             monitor_ = &monitor;
+
             fecha_.dia = dia;
             fecha_.mes = mes;
             fecha_.ano = ano;
@@ -42,18 +43,20 @@ class Visita{
         inline Ruta getRuta(){ return *ruta_; }
         inline int getAfoto(){ return aforo_; }
         inline int getPlazasLibres(){ return plazasLibres_; }
-        inline std::list<Visitante> getVisitantes(){ return visitantes_; }
         inline Monitor getMonitor(){ return *monitor_; }
         inline std::string getId(){ return id_; }
+
+        inline std::list<Visitante*> getVisitantes(){ return visitantes_; }
  
 
-        void setFecha(fecha fecha);
-        void setRuta(Ruta ruta);
-        void setAforo(int aforo);
-        void setPlazasLibres(int plazasLibres);
-        void setVisitantes();
-        void setMonitor(Monitor monitor);
-        void setId(std::string id);  
+        inline void setFecha(fecha fecha){ fecha_ = fecha; }
+        inline void setRuta(Ruta ruta){ ruta_ = &ruta; }
+        inline void setAforo(int aforo){ aforo_ = aforo; }
+        inline void setPlazasLibres(int plazasLibres){ plazasLibres_ = plazasLibres; }
+        inline void setMonitor(Monitor monitor){ monitor_ = &monitor; }
+        inline void setId(std::string id){ id_ = id; }
+
+        inline void addVisitante(Visitante visitante){ visitantes_.push_back(&visitante); plazasLibres_--; }
 
 };
 

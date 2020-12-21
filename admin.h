@@ -3,11 +3,12 @@
 
 #include "persona.h"
 #include "parque.h"
+#include "monitor.h"
 #include "sendero.h"
 #include "visita.h"
 #include "visitante.h"
 #include "ruta.h"
-#include "monitor.h"
+
 
 #include "fecha.h"
 #include "nombre.h"
@@ -49,7 +50,7 @@ class Admin : public Persona{
         void editarMonitor(Monitor monitor);
 
         void eliminarMonitor(Monitor monitor);
-/*
+
         void crearVisita(Ruta ruta, Monitor monitor);
         void editarVisita(Visita visita);
         void eliminarVisita(Visita visita);
@@ -57,7 +58,7 @@ class Admin : public Persona{
         void crearVisitante();
         void editarVisitante(Visitante visitante);
         void eliminarVisitante(Visitante visitante);
-*/
+
 };
 
 #endif
