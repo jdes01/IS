@@ -2,8 +2,8 @@
 #define RUTA_H
 
 #include <string>
-#include <string>
 #include <list>
+
 #include "sendero.h"
 #include "parque.h"
 
@@ -15,7 +15,7 @@ class Ruta{
         std::string id_;
         int aforo_;
         Parque * parque_;
-        std::list<Sendero> senderos_;
+        std::list<Sendero*> senderos_;
         
     public:
 
@@ -24,20 +24,22 @@ class Ruta{
             nombre_ = nombre;
             parque_ = &parque;
             aforo_ = aforo;
+            id_ = "0";
         }
         
         inline std::string getNombre(){ return nombre_; }
         inline std::string getId(){ return id_; }
         inline int         getAforo(){ return aforo_; }
         inline Parque      getParque(){ return *parque_; }
-        inline std::list<Sendero> getSenderos(){ return senderos_; }
+        
+        inline std::list<Sendero*> getSenderos(){ return senderos_; }
 
         inline void setNombre(std::string nombre){ nombre_=nombre; }
         inline void setId(std::string id){ id_=id; }
         inline void setAforo(int aforo){ aforo_=aforo; }
         inline void setParque(Parque parque){ parque_=&parque; }
 
-        void addSenderos(Sendero sendero);
+        void addSendero(Sendero sendero);
 
 
 };

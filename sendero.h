@@ -16,7 +16,7 @@ class Sendero{
         
         Parque * parque_;
 
-        std::list<Incidencia> incidencias_;
+        std::list<Incidencia*> incidencias_;
 
     public:
 
@@ -24,17 +24,20 @@ class Sendero{
                        
             nombre_ = nombre;
             parque_ = &parque;
-            id_     = nombre;
+            id_     = "0";
         }
     
         inline std::string getNombre(){ return nombre_; }
         inline std::string getId(){ return id_; }
         inline Parque getParque(){ return *parque_; }
-        inline std::list<Incidencia> getIncidencias(){return incidencias_;}
 
-        void setNombre(std::string nombre);
-        void setId(std::string id);
-        void setParque(Parque parque);        
+        inline std::list<Incidencia*> getIncidencias(){ return incidencias_; }
+
+        void setNombre(std::string nombre){ nombre_ = nombre; }
+        void setId(std::string id){ id_ = id; }
+        void setParque(Parque parque){ parque_ = &parque; }
+
+        void addIncidencia(Incidencia incidencia);
 
 };
 

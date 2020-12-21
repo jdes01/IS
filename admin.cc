@@ -1,5 +1,10 @@
 #include "admin.h"
 #include "parque.h"
+#include "sendero.h"
+#include "monitor.h"
+
+#include "fecha.h"
+#include "nombre.h"
 
 #include <iostream>
 #include <string>
@@ -23,41 +28,24 @@ void Admin::crearParque(){
 
 void Admin::editarParque(Parque parque){
 
-    int i;
-
     std::string nombre, ubicacion;
     int superficie;
 
-    std::cout<<"Si quiere editar el nombre pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
 
     std::cout<<"introduzca el Nombre: ";
-    std::cin>>nombre;  
-    parque.setNombre(nombre);
-    }
+    std::cin>>nombre;
 
-    std::cout<<"Si quiere editar la ubicacion pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+        parque.setNombre(nombre);
 
     std::cout<<"introduzca la Ubicacion: ";
     std::cin>>ubicacion;  
-    parque.setUbicacion(ubicacion);
-    } 
 
-    std::cout<<"Si quiere editar la superficie pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+        parque.setUbicacion(ubicacion);
 
     std::cout<<"introduzca la superficie: ";
     std::cin>>superficie; 
-    parque.setSuperficie(superficie);
-    } 
 
+        parque.setSuperficie(superficie);
 }
 
 void Admin::eliminarParque(Parque parque){}
@@ -71,24 +59,18 @@ void Admin::crearSendero(Parque parque){
     std::cin>>nombre;
 
     Sendero sendero(nombre, parque);
+
+    parque.addSendero(sendero);
 }
 
 void Admin::editarSendero(Sendero sendero){
 
-    int i;
-
     std::string nombre;
 
-    std::cout<<"Si quiere editar el nombre pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
-
     std::cout<<"introduzca el Nombre: ";
-    std::cin>>nombre;  
-    sendero.setNombre(nombre);
-    } 
+    std::cin>>nombre; 
 
+        sendero.setNombre(nombre);
 }
 
 void Admin::eliminarSendero(Sendero sendero){}
@@ -99,7 +81,6 @@ void Admin::crearMonitor(){
     std::string nombre, primerApellido, segundoApellido, dni, telefono, direccion, correo;
     int dia, mes, ano; 
                   
-
     std::cout<<"introduzca el Nombre: ";
     std::cin>>nombre;
 
@@ -130,103 +111,52 @@ void Admin::crearMonitor(){
     std::cout<<"introduzca la fecha (ano): ";
     std::cin>>ano;
 
-
-    Monitor(nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo);  
+    Monitor monitor(nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo);  
 }
 
 void Admin::editarMonitor(Monitor monitor){
 
     nombre nombreCompleto;
     fecha fechaNacimiento;
+
     std::string nombre, primerApellido, segundoApellido, dni, telefono, direccion, correo;
-    int dia, mes, ano;
-
-    int i;
-
-
-    std::cout<<"Si quiere editar el nombre pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
-
+    int dia, mes, ano; 
+                  
     std::cout<<"introduzca el Nombre: ";
-    std::cin>>nombre;  
+    std::cin>>nombre;
+
     std::cout<<"introduzca el primer apellido: ";
-    std::cin>>primerApellido; 
+    std::cin>>primerApellido;
+
     std::cout<<"introduzca el segundo apellido: ";
-    std::cin>>segundoApellido; 
-
-    nombreCompleto.nombre = nombre;
-    nombreCompleto.primerApellido = primerApellido;
-    nombreCompleto.segundoApellido = segundoApellido;
-
-    monitor.setNombre(nombreCompleto);
-    }
-
-    std::cout<<"Si quiere editar el dni pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+    std::cin>>segundoApellido;
 
     std::cout<<"introduzca el dni: ";
-    std::cin>>dni;  
-    monitor.setDni(dni);
-    } 
-
-    std::cout<<"Si quiere editar el telefono pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+    std::cin>>dni;
 
     std::cout<<"introduzca el telefono: ";
-    std::cin>>telefono; 
-    monitor.setTelefono(telefono);
-    }
-
-    std::cout<<"Si quiere editar la direccion pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+    std::cin>>telefono;
 
     std::cout<<"introduzca la direccion: ";
-    std::cin>>direccion; 
-    monitor.setDireccion(direccion);
-    }
-
-    std::cout<<"Si quiere editar el correo pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
-
-    if (i=1){
+    std::cin>>direccion;
 
     std::cout<<"introduzca el correo: ";
-    std::cin>>correo; 
-    monitor.setCorreo(correo);
-    }
+    std::cin>>correo;
 
-    std::cout<<"Si quiere editar la fecha de nacimiento pulse 1; si desea avanzar, pulse cualquier otra tecla";
-    std::cin>>i;
+    std::cout<<"introduzca la fecha (dia): ";
+    std::cin>>dia;
 
-    if (i=1){
+    std::cout<<"introduzca la fecha (mes): ";
+    std::cin>>mes;
 
-    std::cout<<"introduzca el dia: ";
-    std::cin>>dia;  
-    std::cout<<"introduzca el mes: ";
-    std::cin>>mes; 
-    std::cout<<"introduzca el ano: ";
-    std::cin>>ano; 
-
-    fechaNacimiento.dia = dia;
-    fechaNacimiento.mes = mes;
-    fechaNacimiento.ano = ano;
-
-    monitor.setFechaNacimiento(fechaNacimiento);
-    }
+    std::cout<<"introduzca la fecha (ano): ";
+    std::cin>>ano;
 
 }
 
 void Admin::eliminarMonitor(Monitor monitor){}
 
-
+/*
 void Admin::crearVisita(Ruta ruta, Monitor monitor){
 
     int aforo, dia, mes, ano;
@@ -446,3 +376,4 @@ void Admin::editarVisitante(Visitante visitante){
 
 
 void Admin::eliminarVisitante(std::string dni);
+*/

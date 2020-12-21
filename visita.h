@@ -33,9 +33,9 @@ class Visita{
             aforo_ = aforo;
             ruta_ = &ruta;
             monitor_ = &monitor;
-            fecha.dia = dia;
-            fecha.mes = mes;
-            fecha.ano = ano;
+            fecha_.dia = dia;
+            fecha_.mes = mes;
+            fecha_.ano = ano;
         }
     
         inline fecha getFecha(){ return fecha_; }
@@ -52,7 +52,7 @@ class Visita{
         void setAforo(int aforo);
         void setPlazasLibres(int plazasLibres);
         void setVisitantes();
-        void setMonitor();
+        void setMonitor(Monitor monitor);
         void setId(std::string id);  
 
 };

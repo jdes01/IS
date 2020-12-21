@@ -4,7 +4,7 @@
 
 void Visita::setFecha(fecha fecha){ fecha_ = fecha; }
 
-void setRuta(Ruta ruta){ ruta_ = &ruta; }
+void Visita::setRuta(Ruta ruta){ ruta_ = &ruta; }
 
 void Visita::setAforo(int aforo){ aforo_ = aforo; }
 
@@ -12,6 +12,6 @@ void Visita::setPlazasLibres(int plazasLibres){ plazasLibres_ = plazasLibres; }
 
 //void setVisitantes(){}
 
-void setMonitor(Monitor monitor){ monitor_ = &monitor; }
+void Visita::setMonitor(Monitor monitor){ monitor_ = &monitor; }
 
 void Visita::setId(std::string id){ id_ = id; }

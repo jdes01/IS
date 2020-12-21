@@ -3,8 +3,9 @@
 
 #include <string>
 #include <list>
-#include "sendero.h"
 
+#include "sendero.h"
+#include "ruta.h"
 
 class Parque{
 
@@ -14,23 +15,33 @@ class Parque{
         std::string id_;
         std::string ubicacion_;
         int superficie_;
-        std::list <Sendero> senderos_;
+        std::list <Sendero*> senderos_;
+        std::list <Ruta*> rutas_;
 
     public:
 
-        Parque(std::string nombre, std::string ubicacion = "", int superficie = 0);
+        Parque(std::string nombre, std::string ubicacion, int superficie){
 
-        inline std::string getNombre(){ return nombre_;};
-        inline std::string getId(){ return id_;};
-        inline std::string getUbicacion(){ return ubicacion_;};
-        inline int getSuperficie(){ return superficie_;};
-        inline std::list <Sendero> getSenderos(){ return senderos_;};
+            nombre_=nombre;
+            ubicacion_=ubicacion;
+            superficie_=superficie;
+        }
 
-        inline void setNombre(std::string nombre){nombre_=nombre;};
-        inline void setId(std::string id){id_=id;};
-        inline void setUbicacion(std::string ubicacion){ubicacion_=ubicacion;};
-        inline void setSuperficie(int superficie){superficie_=superficie;};
-        bool addSenderos(Sendero senderos);
+        inline std::string getNombre(){ return nombre_;}
+        inline std::string getId(){ return id_;}
+        inline std::string getUbicacion(){ return ubicacion_;}
+        inline int getSuperficie(){ return superficie_;}
+
+        inline std::list <Sendero*> getSenderos(){ return senderos_;}
+        inline std::list <Ruta*> getRutas(){ return rutas_;}
+
+        inline void setNombre(std::string nombre){nombre_=nombre;}
+        inline void setId(std::string id){id_=id;}
+        inline void setUbicacion(std::string ubicacion){ubicacion_=ubicacion;}
+        inline void setSuperficie(int superficie){superficie_=superficie;}
+
+        void addSendero(Sendero sendero);
+        void addRuta(Ruta ruta);
 };
 
 #endif

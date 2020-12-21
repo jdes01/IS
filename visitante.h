@@ -18,8 +18,8 @@ class Visitante:public Persona{
                   std::string primerApellido, std::string segundoApellido,  
                   std::string dni,            std::string telefono, 
                   int dia,                    int mes,
-                  int ano,                    std::string direccion,
-                  std::string correo)
+                  int ano,                    std::string direccion="",
+                  std::string correo="")
         
             :Persona(nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo){ discapacidad_=discapacidad; }
             

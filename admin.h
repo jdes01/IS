@@ -7,9 +7,11 @@
 #include "visita.h"
 #include "visitante.h"
 #include "ruta.h"
+#include "monitor.h"
 
 #include "fecha.h"
 #include "nombre.h"
+
 #include <string>
 
 class Admin : public Persona{
@@ -26,10 +28,13 @@ class Admin : public Persona{
                 int mes,                      int ano, 
                 std::string direccion="",     std::string correo="")
                   
-                :Persona(nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo){id_="0";}
+                :Persona(nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo){
+                        
+                        id_="0";
+                }
 
-        inline std::string getId(){return id_;}
-        inline void setId(std::string id){id_=id;}
+        inline std::string getId(){ return id_; }
+        inline void setId(std::string id){ id_ = id; }
 
         void crearParque();
         void editarParque(Parque parque);
@@ -40,9 +45,11 @@ class Admin : public Persona{
         void eliminarSendero(Sendero sendero);
 
         void crearMonitor();
-        void editarMonitor(Monitor monitor);
-        void eliminarMonitor(Monitor monitor);
 
+        void editarMonitor(Monitor monitor);
+
+        void eliminarMonitor(Monitor monitor);
+/*
         void crearVisita(Ruta ruta, Monitor monitor);
         void editarVisita(Visita visita);
         void eliminarVisita(Visita visita);
@@ -50,7 +57,7 @@ class Admin : public Persona{
         void crearVisitante();
         void editarVisitante(Visitante visitante);
         void eliminarVisitante(Visitante visitante);
-
+*/
 };
 
 #endif
