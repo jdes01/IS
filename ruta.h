@@ -13,12 +13,13 @@ class Ruta{
         std::string nombre_;
         std::list<Sendero> senderos_;
         std::string id_;
-        Parque parque_;
+        Parque * parque_;
         int aforo_;
 
     public:
 
         Ruta(std::string id, std::string nombre, Parque parque):parque_(parque.getId(), parque.getNombre()){id_=id; nombre_=nombre; aforo_=0;}
+        
         inline std::string getNombre(){return nombre_;}
         inline void setNombre(std::string nombre){nombre_=nombre;}
         inline std::string getId(){return id_;}

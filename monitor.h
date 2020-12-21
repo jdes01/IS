@@ -25,10 +25,13 @@ class Monitor : public Persona{
 
         inline std::string getId(){return id_;}
         inline void setId(std::string id){id_=id;}
+
         void crearIncidencia(Sendero sendero);
         void editarIncidencia(std::string id);
+
         void eliminarIncidencia(std::string id);
         void crearRuta(Parque parque);
+        
         void editarRuta(std::string id);
         void eliminarRuta(std::string id);
 

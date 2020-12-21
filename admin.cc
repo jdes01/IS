@@ -32,8 +32,10 @@ void Admin::crearParque(){
 
     std::cout<<"introduzca el Nombre: ";
     std::cin>>nombre;
+
     std::cout<<"introduzca la Ubicacion: ";
     std::cin>>ubicacion;
+    
     std::cout<<"introduzca la superficie: ";
     std::cin>>superficie;
 
