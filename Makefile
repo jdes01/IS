@@ -79,7 +79,7 @@ persona_unittest.o : persona_unittest.cc persona.h persona.cc
 persona_unittest : persona.o persona_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
-monitor.o : monitor.cc monitor.h persona.cc persona.h
+monitor.o : monitor.cc monitor.h persona.cc persona.
 
 monitor_unittest.o : monitor_unittest.cc monitor.h monitor.cc persona.cc persona.h
 

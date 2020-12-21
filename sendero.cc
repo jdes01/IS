@@ -11,7 +11,7 @@ void Sendero::setId(std::string id){
     id_ = id;
 }
 
-/*void Sendero::setParque(Parque parque){
+void Sendero::setParque(Parque parque){
 
-    parque_ = parque;
-}*/
+    parque_ = &parque;
+}
