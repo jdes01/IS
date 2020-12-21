@@ -6,6 +6,7 @@
 #include "sendero.h"
 #include "visita.h"
 #include "visitante.h"
+#include "ruta.h"
 
 #include "fecha.h"
 #include "nombre.h"
@@ -32,7 +33,7 @@ class Admin : public Persona{
 
         void crearParque();
         void editarParque(Parque parque);
-        void eliminarParque(Parque parque;
+        void eliminarParque(Parque parque);
 
         void crearSendero(Parque parque);
         void editarSendero(Sendero sendero);
