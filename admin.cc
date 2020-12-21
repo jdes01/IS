@@ -198,7 +198,7 @@ void Admin::crearVisita(Ruta ruta, Monitor monitor){
     std::cout<<"introduzca la fecha (ano): ";
     std::cin>>ano;
 
-    Visita(aforo, dia, mes, ano, ruta, monitor);
+    Visita visita(aforo, dia, mes, ano, ruta, monitor);
 
 }
 
@@ -272,7 +272,7 @@ void Admin::crearVisitante(){
     std::cin>>ano;
 
 
-    Visitante(discapacidad, nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo);  
+    Visitante visitante (discapacidad, nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo);  
 
 }
 
