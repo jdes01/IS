@@ -14,8 +14,9 @@ class Ruta{
         std::string nombre_;
         std::string id_;
         int aforo_;
-        Parque * parque_;
         std::list<Sendero*> senderos_;
+
+        Parque * parque_;
         
     public:
 

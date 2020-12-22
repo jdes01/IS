@@ -30,7 +30,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread -std=gnu++11
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = persona_unittest visitante_unittest monitor_unittest
+TESTS = persona_unittest parque_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -81,19 +81,27 @@ persona_unittest : persona.o persona_unittest.o gtest_main.a
 
 
 
-visitante.o : visitante.cc visitante.h
+#visitante.o : visitante.cc visitante.h
+#
+#visitante_unittest.o : visitante_unittest.cc visitante.h visitante.cc
+#
+#visitante_unittest : visitante.o visitante_unittest.o gtest_main.a
+#	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+#
+#
+#
+#monitor.o : monitor.cc monitor.h persona.cc persona.h sendero.cc sendero.h parque.cc parque.h ruta.cc ruta.h
+#
+#monitor_unittest.o : monitor_unittest.cc monitor.h persona.cc persona.h sendero.cc sendero.h parque.cc parque.h ruta.cc ruta.h monitor.cc
+#
+#monitor_unittest : monitor.o monitor_unittest.o gtest_main.a persona.o sendero.o parque.o ruta.o
+#	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 
-visitante_unittest.o : visitante_unittest.cc visitante.h visitante.cc
 
-visitante_unittest : visitante.o visitante_unittest.o gtest_main.a
+
+parque.o : parque.cc parque.h sendero.cc sendero.h
+
+parque_unittest.o : parque_unittest.cc parque.h parque.cc sendero.cc sendero.h
+
+parque_unittest : parque.o parque_unittest.o gtest_main.a sendero.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
-
-
-
-monitor.o : monitor.cc monitor.h persona.cc persona.h sendero.cc sendero.h parque.cc parque.h ruta.cc ruta.h
-
-monitor_unittest.o : monitor_unittest.cc monitor.h persona.cc persona.h sendero.cc sendero.h parque.cc parque.h ruta.cc ruta.h monitor.cc
-
-monitor_unittest : monitor.o monitor_unittest.o gtest_main.a persona.o sendero.o parque.o ruta.o
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
-

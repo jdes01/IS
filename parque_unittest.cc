@@ -14,15 +14,17 @@ TEST(Parque, Constructor) {
 TEST(Parque, addSenderos) {
 
   Parque p("Nombre", "Ubicacion", 1);
-  Sendero s("hola");
-  Sendero ss("adios");
-  Sendero sss("hola");
-  p.addSenderos(s);
-  p.addSenderos(ss);
-  p.addSenderos(sss);
+
+  Sendero s("hola", p);
+  Sendero ss("adios", p);
+  Sendero sss("hola", p);
+
+  p.addSendero(s);
+  p.addSendero(ss);
+  p.addSendero(sss);
 
   EXPECT_EQ( "adios",         ss.getNombre());
-  EXPECT_EQ( "hola",          s.getId());
+  EXPECT_EQ( "0",             s.getId());
   EXPECT_EQ( "hola",          s.getNombre());
   EXPECT_EQ( 2,               p.getSenderos().size());
 }
