@@ -8,6 +8,7 @@
 #include "nombre.h"
 
 #include <iostream>
+#include <fstream>
 #include <string>
 
 
@@ -22,10 +23,22 @@ void Admin::crearParque(){
     std::cout<<"introduzca la Ubicacion: ";
     std::cin>>ubicacion;
     
-    std::cout<<"introduzca la superficie: ";
+    std::cout<<"introduzca la superficie (IMPORTANTE, la dimension debe ser expresad en enteros): ";
     std::cin>>superficie;
 
     Parque parque(nombre, ubicacion, superficie);
+
+
+    std::fstream f;
+
+    f.open("listaParques.txt", std::ios::out | std::ios::app);
+
+    if(f.is_open()){        
+            
+            f<<parque.getNombre()<<','<<parque.getUbicacion()<<','<<parque.getSuperficie()<<','<<'\n';         
+          
+    } 
+
 }
 
 void Admin::editarParque(Parque parque){
@@ -61,9 +74,19 @@ void Admin::crearSendero(Parque parque){
     std::cout<<"introduzca el Nombre: ";
     std::cin>>nombre;
 
-    Sendero sendero(nombre, parque);
+    Sendero sendero(nombre);
 
     parque.addSendero(sendero);
+
+    std::fstream f;
+
+    f.open("listaSenderos.txt", std::ios::out | std::ios::app);
+
+    if(f.is_open()){        
+            
+            f<<sendero.getNombre()<<','<<'\n';         
+          
+    } 
 }
 
 void Admin::editarSendero(Sendero sendero){
@@ -116,6 +139,7 @@ void Admin::crearMonitor(){
     std::cin>>ano;
 
     Monitor monitor(nombre, primerApellido, segundoApellido, dni, telefono, dia, mes, ano, direccion, correo);  
+
 }
 
 void Admin::editarMonitor(Monitor monitor){
@@ -181,7 +205,7 @@ void Admin::eliminarMonitor(Monitor monitor){}
 
 
 
-void Admin::crearVisita(Ruta ruta, Monitor monitor){
+void Admin::crearVisita(){
 
     int aforo, dia, mes, ano;
     
@@ -198,7 +222,7 @@ void Admin::crearVisita(Ruta ruta, Monitor monitor){
     std::cout<<"introduzca la fecha (ano): ";
     std::cin>>ano;
 
-    Visita visita(aforo, dia, mes, ano, ruta, monitor);
+    Visita visita(aforo, dia, mes, ano);
 
 }
 

@@ -2,6 +2,7 @@
 #include "incidencia.h"
 #include "ruta.h"
 #include <iostream>
+#include <fstream>
 
 void Monitor::crearIncidencia(Sendero sendero){
 
@@ -16,9 +17,18 @@ void Monitor::crearIncidencia(Sendero sendero){
     std::cout<<"introduzca la prioridad: ";
     std::cin>>prioridad;
 
-    Incidencia incidencia(titulo, descripcion, prioridad, sendero);
+    Incidencia incidencia(titulo, descripcion, prioridad);
 
     sendero.addIncidencia(incidencia);
+
+    std::fstream f;
+
+    f.open("listaIncidencias.txt", std::ios::out | std::ios::app);
+
+    if(f.is_open()){        
+    
+            f<<incidencia.getTitulo()<<','<<incidencia.getDescripcion()<<','<<incidencia.getPrioridad()<<','<<'\n';  
+    }
 }
 
 void Monitor::editarIncidencia(Incidencia incidencia){
@@ -55,9 +65,19 @@ void Monitor::crearRuta(Parque parque){
     std::cout<<"introduzca el aforo: ";
     std::cin>>aforo;
 
-    Ruta ruta(nombre, aforo, parque);
+    Ruta ruta(nombre, aforo);
 
     parque.addRuta(ruta);
+
+    std::fstream f;
+
+    f.open("listaRuta.txt", std::ios::out | std::ios::app);
+
+    if(f.is_open()){        
+            
+            f<<ruta.getNombre()<<','<<'\n';         
+          
+    }
 }
 
 void Monitor::editarRuta(Ruta ruta){

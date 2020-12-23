@@ -51,7 +51,7 @@ class Admin : public Persona{
 
         void eliminarMonitor(Monitor monitor);
 
-        void crearVisita(Ruta ruta, Monitor monitor);
+        void crearVisita();
         void editarVisita(Visita visita);
         void eliminarVisita(Visita visita);
 

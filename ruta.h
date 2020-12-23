@@ -15,15 +15,13 @@ class Ruta{
         std::string id_;
         int aforo_;
         std::list<Sendero*> senderos_;
-
-        Parque * parque_;
         
     public:
 
-        Ruta(std::string nombre, int aforo, Parque parque){
+        Ruta(std::string nombre, int aforo){
 
             nombre_ = nombre;
-            parque_ = &parque;
+
             aforo_ = aforo;
             id_ = "0";
         }
@@ -31,14 +29,14 @@ class Ruta{
         inline std::string getNombre(){ return nombre_; }
         inline std::string getId(){ return id_; }
         inline int         getAforo(){ return aforo_; }
-        inline Parque      getParque(){ return *parque_; }
+
         
         inline std::list<Sendero*> getSenderos(){ return senderos_; }
 
         inline void setNombre(std::string nombre){ nombre_=nombre; }
         inline void setId(std::string id){ id_=id; }
         inline void setAforo(int aforo){ aforo_=aforo; }
-        inline void setParque(Parque parque){ parque_=&parque; }
+
 
         void addSendero(Sendero sendero);
 
